@@ -1,14 +1,19 @@
 /* Base header styling */
 .header {
     display: flex;
-    
+    align-items: center;
+    justify-content: space-between;
     padding: 15px 20px;
     background-color: #f7faf8; /* Soft green-toned background */
     border-bottom: 2px solid #e0e4e2;
     position: fixed;
     width: 100%;
-    
+    z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box; /* Ensure padding is included in width */
+    overflow: hidden; /* Prevent overflow issues */
+    margin-top: -20px;
+   
 }
 
 .logo {
@@ -46,11 +51,12 @@
 .signup-link {
     padding: 8px 16px;
     background-color: #2a6e5a; /* Dark green */
-    color: #f7faf8; /* Light green background */
+    color: #f7faf8;
     border-radius: 24px;
     text-align: center;
     font-weight: bold;
     transition: background-color 0.3s;
+    white-space: nowrap; /* Prevents text from wrapping */
 }
 
 .signup-link:hover {
@@ -63,13 +69,50 @@
     font-size: 1.6rem;
     color: #2a6e5a;
     cursor: pointer;
-    margin-right: 10px;
 }
+
+/* Add this to your CSS file */
+
+.hire-chef-link {
+    position: relative; /* Necessary for positioning the pseudo-elements */
+}
+
+.hire-chef-link::before,
+.hire-chef-link::after {
+    content: '';
+    position: absolute;
+    left: 50%; /* Center it horizontally */
+    transform: translateX(-50%); /* Shift left by 50% of its own width to center */
+}
+
+.hire-chef-link::before {
+    bottom: -5px; /* First underline spacing from the text */
+    width: 100%; /* Full width of the text */
+    height: 2px; /* Height of the first underline */
+    background-color: #2a6e5a; /* Dark green color */
+}
+
+.hire-chef-link::after {
+    bottom: -10px; /* Second underline spacing from the text */
+    width: 60%; /* Set your desired width for the second underline */
+    height: 2px; /* Height of the second underline */
+    background-color: #2a6e5a; /* Dark green color */
+}
+
 
 /* Responsive Styles */
 @media (max-width: 768px) {
     .menu-icon {
         display: block;
+        z-index: 1001; /* Keep icon above the sidebar */
+        margin-left: -20px;
+        margin-bottom: -8px;
+    }
+    
+    /* Ensure logo has enough space and doesn't push elements */
+    .logo {
+        flex-grow: 1; /* Allow logo to take available space */
+        margin-left: 10px; /* Optional margin to center logo */
     }
 
     /* Hide navigation links on mobile unless menu is open */
@@ -77,16 +120,18 @@
         display: none;
         flex-direction: column;
         position: fixed;
-        top: 0;
+        
+        top: 66px; /* Adjusted offset to bring the sidebar down */
         left: 0;
         width: 250px;
-        height: 100vh;
+        height: calc(100vh - 70px); /* Full height minus header height */
         background-color: #f0f5f3; /* Light greenish background */
-        padding: 3rem 1.5rem;
+        padding: 2rem 1.5rem;
         box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
         z-index: 999;
         transform: translateX(-100%);
         transition: transform 0.3s ease-in-out;
+    
     }
 
     .nav-links.open {
@@ -95,9 +140,11 @@
     }
 
     .nav-link {
-        margin: 1.2rem 0;
+        margin: 0.8rem 0; /* Reduced bottom gap between nav links */
         font-size: 1.2rem;
         color: #2f4f4f;
+        margin-left: 10px; /* Align items inside left with 10px */
+        
     }
 
     /* Update the call-to-action button styling */
@@ -105,5 +152,6 @@
         padding: 10px 20px;
         font-size: 1.1rem;
         width: fit-content;
+        white-space: nowrap;
     }
 }
