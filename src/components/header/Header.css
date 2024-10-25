@@ -1,0 +1,109 @@
+/* Base header styling */
+.header {
+    display: flex;
+    
+    padding: 15px 20px;
+    background-color: #f7faf8; /* Soft green-toned background */
+    border-bottom: 2px solid #e0e4e2;
+    position: fixed;
+    width: 100%;
+    
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2a6e5a; /* Dark green color */
+    text-decoration: none;
+}
+
+/* Desktop navigation links - positioned on the right */
+.nav-links {
+    display: flex;
+    gap: 1.8rem;
+    align-items: center;
+    margin-left: auto; /* Pushes the navigation links to the right */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #2f4f4f; /* Muted gray-green for primary links */
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #2a6e5a; /* Dark green hover effect */
+}
+
+/* Call-to-action styles for Login and Sign Up */
+.login-link {
+    color: #4b7166; /* Muted dark gray-green */
+}
+
+.signup-link {
+    padding: 8px 16px;
+    background-color: #2a6e5a; /* Dark green */
+    color: #f7faf8; /* Light green background */
+    border-radius: 24px;
+    text-align: center;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.signup-link:hover {
+    background-color: #244f45; /* Slightly darker green for hover */
+}
+
+/* Mobile menu icon */
+.menu-icon {
+    display: none;
+    font-size: 1.6rem;
+    color: #2a6e5a;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    /* Hide navigation links on mobile unless menu is open */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100vh;
+        background-color: #f0f5f3; /* Light greenish background */
+        padding: 3rem 1.5rem;
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-links.open {
+        display: flex;
+        transform: translateX(0);
+    }
+
+    .nav-link {
+        margin: 1.2rem 0;
+        font-size: 1.2rem;
+        color: #2f4f4f;
+    }
+
+    /* Update the call-to-action button styling */
+    .signup-link {
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        width: fit-content;
+    }
+}
