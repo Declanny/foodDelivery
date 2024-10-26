@@ -1,0 +1,31 @@
+/* src/pages/Menu.css */
+
+.menu-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.menu-navbar {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 20px 20px 10px 20px; /* Extra padding on top for spacing */
+    margin-top: 15px; /* Spacing below navbar */
+}
+
+.search-bar {
+    margin-left: 0; /* Ensures it stays aligned to the left */
+    align-self: flex-start; /* Aligns to the left within navbar */
+
+}
+
+/* Cards container */
+.menu-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+}

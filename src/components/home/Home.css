@@ -1,0 +1,54 @@
+/* src/components/home/Home.css */
+
+.hot-features {
+    max-width: 1200px; /* Set a max width for larger screens */
+    margin: 0 auto; /* Center the section */
+    padding: 20px; /* Add some padding */
+  }
+  
+  .hot-features h2 {
+    text-align: left; /* Align header to the left */
+    margin-bottom: 20px; /* Space below the header */
+  }
+  
+  .food-cards {
+    display: grid; /* Use grid for layout */
+    grid-template-columns: repeat(5, 1fr); /* Five cards per row */
+    gap: 16px; /* Space between cards */
+  }
+  
+  .food-card-container {
+    overflow: hidden; /* Prevent overflow during animation */
+  }
+  
+  .view-more {
+    display: inline-block; /* Make it an inline-block element */
+    margin-top: 20px; /* Space above the link */
+    text-decoration: underline; /* Underline the text */
+    color: rgba(184, 142, 47, 1); /* Your specified color */
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .hot-features {
+        margin-top: -170px;
+    }
+    .food-cards {
+      display: flex; /* Use flex for mobile */
+      overflow-x: auto; /* Enable horizontal scrolling */
+      scroll-snap-type: x mandatory; /* Add snap effect */
+    }
+  
+    .food-card-container {
+      flex: 0 0 auto; /* Prevent flex items from shrinking */
+      scroll-snap-align: start; /* Snap to the start of each item */
+      transition: transform 0.3s ease; /* Smooth slide transition */
+    }
+  
+    .food-card-container:hover {
+      transform: scale(1.05); /* Slight scale on hover for effect */
+    }
+  
+    /* You can add specific animations here for left/right sliding */
+  }
+  

@@ -12,7 +12,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     box-sizing: border-box; /* Ensure padding is included in width */
     overflow: hidden; /* Prevent overflow issues */
-  
+    margin-top: -7px;
    
 }
 
@@ -102,6 +102,7 @@
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+    
     .menu-icon {
         display: block;
         z-index: 1001; /* Keep icon above the sidebar */

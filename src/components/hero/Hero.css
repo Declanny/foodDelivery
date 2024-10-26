@@ -106,7 +106,9 @@
 @media (max-width: 1200px) {
   .hero {
     flex-direction: column;
-  }
+    margin-left: -30px;
+    margin-right: -30px;
+    }
 
   .hero-image img {
     max-width: 100%; /* Reduce image size */
