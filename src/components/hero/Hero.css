@@ -1,23 +1,183 @@
 /* src/components/hero/Hero.css */
+
 .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 40px;
-    background-color: #f7faf8; /* Soft green background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+  background-color: white;
+  padding: 0 5%; /* Horizontal padding */
+}
+
+.hero-text {
+  flex: 1;
+  text-align: left;
+  margin-top: -80px;
+  margin-left: 60px;
+}
+
+.hero-text h1 {
+  font-size: 3.0rem;
+  color: #2a6e5a; /* Dark green color */
+  line-height: 1.3;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Positioning for underlines */
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 600px; /* Maximum width */
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Animation for changing colors */
+@keyframes colorFlow {
+  0% {
+    background-color: #2a6e5a; /* Green */
   }
-  
-  .hero-text h1 {
-    font-size: 2.5rem;
-    color: #2a6e5a; /* Dark green color */
-    line-height: 1.3;
+  33% {
+    background-color: #e74c3c; /* Red */
   }
-  
+  66% {
+    background-color: #3498db; /* Blue */
+  }
+  100% {
+    background-color: #2a6e5a; /* Green */
+  }
+}
+
+/* Underlines styling with cascading animation */
+.hero-image::before,
+.hero-image::after,
+.hero-image .bottom-third-underline,
+.hero-image .top-first-underline,
+.hero-image .top-second-underline,
+.hero-image .top-third-underline {
+  content: "";
+  position: absolute;
+  height: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: colorFlow 6s infinite;
+}
+
+/* Bottom underlines with cascading delays */
+.hero-image::before {
+  width: 80%;
+  bottom: -16px;
+  animation-delay: 0s;
+}
+.hero-image::after {
+  width: 60%;
+  bottom: -24px;
+  animation-delay: 1s;
+}
+.hero-image .bottom-third-underline {
+  width: 40%;
+  bottom: -32px;
+  animation-delay: 2s;
+}
+
+/* Top underlines with cascading delays */
+.hero-image .top-first-underline {
+  width: 80%;
+  top: -16px;
+  animation-delay: 3s;
+}
+.hero-image .top-second-underline {
+  width: 60%;
+  top: -24px;
+  animation-delay: 4s;
+}
+.hero-image .top-third-underline {
+  width: 40%;
+  top: -32px;
+  animation-delay: 5s;
+}
+/* Media query for devices smaller than 1200px */
+@media (max-width: 1200px) {
+  .hero {
+    flex-direction: column;
+  }
+
   .hero-image img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%; /* Circle shape */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft shadow */
-    object-fit: cover;
+    max-width: 100%; /* Reduce image size */
   }
-  
+
+  .hero-text {
+    margin-left: 0; /* Center text */
+    text-align: center; /* Center text */
+    position: relative; /* For overlay */
+    bottom: -80px; /* Adjust if needed */
+  }
+}
+
+/* Media query for devices smaller than 1024px (mini iPad) */
+@media (max-width: 1024px) {
+  .hero-text {
+    margin-top: -60px; /* Further adjust to drop text */
+  }
+}
+
+/* Media query for devices smaller than 992px */
+@media (max-width: 992px) {
+  .hero-text h1 {
+    font-size: 2.5rem; /* Smaller font size */
+  }
+
+  .hero-image img {
+    max-width: 100%; /* Further reduce image size */
+  }
+}
+
+/* Media query for devices smaller than 768px */
+@media (max-width: 768px) {
+  .hero-text {
+    margin-top: 10px; /* Adjust overlay position */
+    bottom: -20px; /* Lower the text slightly */
+  }
+
+  .hero-text h1 {
+    font-size: 2rem; /* Even smaller font size */
+  }
+
+  .hero {
+    padding: 0 2%; /* Reduce padding */
+  }
+
+  .hero-image img {
+    max-width: 90%; /* Increase image size slightly */
+  }
+}
+
+/* Media query for devices smaller than 576px */
+@media (max-width: 576px) {
+  .hero-text {
+    margin-top: 0px; /* Adjust overlay position */
+    padding: 20px; /* Add padding for text */
+    border-radius: 8px; /* Optional: rounded corners */
+  }
+
+  .hero-text h1 {
+    font-size: 1.5rem; /* Smaller font size */
+  }
+}
+
+/* Media query for extra small devices (mobile) */
+@media (max-width: 400px) {
+  .hero-text h1 {
+    font-size: 1.2rem; /* Smaller font size for very small screens */
+  }
+
+  .hero {
+    padding: 0 1%; /* Minimal padding */
+  }
+}
