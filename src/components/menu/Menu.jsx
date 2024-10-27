@@ -26,6 +26,7 @@ const Menu = () => {
       foodDescription: "Delicious pasta with fresh ingredients.",
       foodPrice: "200.00",
     },
+    
     {
       foodImage: "https://res.cloudinary.com/dqbbm0guw/image/upload/v1729973449/high-angle-delicious-brazilian-food-composition_nlhjln.jpg",
       foodDescription: "Refreshing smoothie with tropical fruits.",
@@ -46,6 +47,7 @@ const Menu = () => {
       foodDescription: "Refreshing smoothie with tropical fruits.",
       foodPrice: "200.00",
     },
+    
     // Add more items here
   ];
 

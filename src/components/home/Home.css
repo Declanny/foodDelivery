@@ -1,7 +1,7 @@
 /* src/components/home/Home.css */
 
 .hot-features {
-    max-width: 1200px; /* Set a max width for larger screens */
+    max-width: 100%; /* Set a max width for larger screens */
     margin: 0 auto; /* Center the section */
     padding: 20px; /* Add some padding */
   }
