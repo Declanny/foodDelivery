@@ -4,18 +4,27 @@ import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai';
 
 const FoodCard = ({ 
   foodImage, 
+  foodImageSrcSet,  // New prop for responsive images
+  foodImageSizes,    // New prop for responsive images
   foodDescription, 
-  foodPrice,  // New prop for price
+  foodPrice,
   onAddToCart, 
   onLike, 
   width = '250px', 
-  height = '250px', // Adjusted height for sleek look
+  height = '250px', 
   borderRadius = '10px' 
 }) => {
   return (
     <div className="food-card" style={{ width, height, borderRadius }}>
       <div className="food-card-image" style={{ borderRadius }}>
-        <img src={foodImage} alt="Food" style={{ borderRadius }} />
+        <img 
+          src={foodImage} 
+          srcSet={foodImageSrcSet} 
+          sizes={foodImageSizes} 
+          alt="Food" 
+          style={{ borderRadius }} 
+          loading="lazy"
+        />
         <div className="food-card-overlay">
           <AiOutlineHeart 
             className="icon heart-icon" 
@@ -32,7 +41,7 @@ const FoodCard = ({
       <div className="food-card-content">
         <div className="food-info">
           <p className="food-description">{foodDescription}</p>
-          <p className="food-price">₦{foodPrice}</p> {/* Display price with Naira symbol */}
+          <p className="food-price">₦{foodPrice}</p>
         </div>
       </div>
     </div>
@@ -41,12 +50,14 @@ const FoodCard = ({
 
 FoodCard.propTypes = {
   borderRadius: PropTypes.string,
-  foodDescription: PropTypes.any,
-  foodImage: PropTypes.any,
-  foodPrice: PropTypes.string, // Updated prop type
+  foodDescription: PropTypes.string.isRequired,
+  foodImage: PropTypes.string.isRequired,
+  foodImageSrcSet: PropTypes.string,
+  foodImageSizes: PropTypes.string,
+  foodPrice: PropTypes.string.isRequired,
   height: PropTypes.string,
-  onAddToCart: PropTypes.any,
-  onLike: PropTypes.any,
+  onAddToCart: PropTypes.func,
+  onLike: PropTypes.func,
   width: PropTypes.string
 };
 

@@ -52,3 +52,42 @@
     /* You can add specific animations here for left/right sliding */
   }
   
+  /* src/components/home/Home.css */
+
+.chef-features {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.chef-features h2 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.chef-cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.chef-card-container {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .chef-cards {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  .chef-card-container {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
+  }
+
+  .chef-card-container:hover {
+    transform: scale(1.05);
+  }
+}

@@ -1,5 +1,3 @@
-// src/pages/Menu.js
-
 import { useState } from 'react';
 import FoodCard from '../shared/foodcards/FoodCard';
 import './Menu.css';
@@ -20,35 +18,40 @@ const Menu = () => {
     setSearchTerm(term.toLowerCase());
   };
 
+  // Image sizes and srcSet for responsive loading
+  const imageSrcSets = (url) => `
+    ${url.replace('/upload/', '/upload/c_scale,w_300/')} 300w,
+    ${url.replace('/upload/', '/upload/c_scale,w_600/')} 600w,
+    ${url.replace('/upload/', '/upload/c_scale,w_800/')} 800w
+  `;
+
   const menuItems = [
     {
       foodImage: "https://res.cloudinary.com/dqbbm0guw/image/upload/v1729973461/delicious-lobster-gourmet-seafood_zn5nq1.jpg",
       foodDescription: "Delicious pasta with fresh ingredients.",
       foodPrice: "200.00",
     },
-    
     {
       foodImage: "https://res.cloudinary.com/dqbbm0guw/image/upload/v1729973449/high-angle-delicious-brazilian-food-composition_nlhjln.jpg",
       foodDescription: "Refreshing smoothie with tropical fruits.",
       foodPrice: "200.00",
     },
-    {
-      foodImage: "https://res.cloudinary.com/dqbbm0guw/image/upload/v1729973461/delicious-lobster-gourmet-seafood_zn5nq1.jpg",
-      foodDescription: "Delicious pasta with fresh ingredients.",
-      foodPrice: "200.00",
-    },
-    {
-      foodImage: "https://res.cloudinary.com/dqbbm0guw/image/upload/v1729973461/delicious-lobster-gourmet-seafood_zn5nq1.jpg",
-      foodDescription: "Delicious pasta with fresh ingredients.",
-      foodPrice: "200.00",
-    },
-    {
-      foodImage: "https://res.cloudinary.com/dqbbm0guw/image/upload/v1729973449/high-angle-delicious-brazilian-food-composition_nlhjln.jpg",
-      foodDescription: "Refreshing smoothie with tropical fruits.",
-      foodPrice: "200.00",
-    },
-    
-    // Add more items here
+  {
+    foodImage: "https://res.cloudinary.com/dqbbm0guw/image/upload/v1729973461/delicious-lobster-gourmet-seafood_zn5nq1.jpg",
+    foodDescription: "Delicious pasta with fresh ingredients.",
+    foodPrice: "200.00",
+  },
+  {
+    foodImage: "https://res.cloudinary.com/dqbbm0guw/image/upload/v1729973461/delicious-lobster-gourmet-seafood_zn5nq1.jpg",
+    foodDescription: "Delicious pasta with fresh ingredients.",
+    foodPrice: "200.00",
+  },
+  {
+    foodImage: "https://res.cloudinary.com/dqbbm0guw/image/upload/v1729973449/high-angle-delicious-brazilian-food-composition_nlhjln.jpg",
+    foodDescription: "Refreshing smoothie with tropical fruits.",
+    foodPrice: "200.00",
+  },
+    // Add more items here as needed
   ];
 
   const filteredItems = menuItems.filter(item =>
@@ -65,6 +68,8 @@ const Menu = () => {
           <FoodCard
             key={index}
             foodImage={item.foodImage}
+            foodImageSrcSet={imageSrcSets(item.foodImage)}
+            foodImageSizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 800px"
             foodDescription={item.foodDescription}
             foodPrice={item.foodPrice}
             onAddToCart={handleAddToCart}

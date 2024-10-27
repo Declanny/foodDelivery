@@ -1,7 +1,9 @@
-// src/components/menuLink/MenuLink.js
-import PropTypes from "prop-types"
-import React from 'react';
+import PropTypes from "prop-types";
 import FoodCard from '../../shared/foodcards/FoodCard';
+
+// Helper function to generate optimized image URLs
+const optimizedImageUrl = (url, width) => 
+  url.replace('/upload/', `/upload/c_scale,w_${width}/`);
 
 const menuItems = [
   {
@@ -39,13 +41,19 @@ const MenuLink = ({ handleAddToCart, handleLike }) => {
         <div key={index} className="food-card-container">
           <FoodCard
             foodImage={item.foodImage}
+            foodImageSrcSet={`
+              ${optimizedImageUrl(item.foodImage, 400)} 400w,
+              ${optimizedImageUrl(item.foodImage, 800)} 800w,
+              ${optimizedImageUrl(item.foodImage, 1200)} 1200w
+            `}
+            foodImageSizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
             foodDescription={item.foodDescription}
+            foodPrice={item.foodPrice}
             onAddToCart={handleAddToCart}
             onLike={handleLike}
             width="260px"
             height="220px"
             borderRadius="12px"
-            foodPrice={item.foodPrice}
           />
         </div>
       ))}
@@ -54,8 +62,8 @@ const MenuLink = ({ handleAddToCart, handleLike }) => {
 };
 
 MenuLink.propTypes = {
-  handleAddToCart: PropTypes.any,
-  handleLike: PropTypes.any
-}
+  handleAddToCart: PropTypes.func.isRequired,
+  handleLike: PropTypes.func.isRequired
+};
 
 export default MenuLink;

@@ -3,6 +3,8 @@ import Button from '../shared/button/Button';
 import './Hero.css';
 
 const Hero = () => {
+  const heroImageUrl = "https://res.cloudinary.com/dqbbm0guw/image/upload/v1729954092/Screenshot_2024-10-26_at_3.47.42_PM_gnortl.png";
+  
   return (
     <div className="hero">
       <div className="hero-image">
@@ -12,8 +14,17 @@ const Hero = () => {
         <div className="top-third-underline"></div>
         
         <img
-          src="https://res.cloudinary.com/dqbbm0guw/image/upload/v1729954092/Screenshot_2024-10-26_at_3.47.42_PM_gnortl.png"
+          src={heroImageUrl.replace('/upload/', '/upload/e_blur:2000,w_10/')} // low-res placeholder
+          srcSet={`
+            ${heroImageUrl.replace('/upload/', '/upload/f_webp,c_scale,w_400/')} 400w,
+            ${heroImageUrl.replace('/upload/', '/upload/f_webp,c_scale,w_800/')} 800w,
+            ${heroImageUrl.replace('/upload/', '/upload/f_webp,c_scale,w_1600/')} 1600w
+          `}
+          sizes="(max-width: 600px) 100vw, (max-width: 1200px) 75vw, 50vw"
           alt="Cooking"
+          loading="lazy"
+          style={{ filter: 'blur(10px)', transition: 'filter 0.5s ease-in-out' }}
+          onLoad={(e) => e.currentTarget.style.filter = 'none'}
         />
         
         {/* Bottom underlines */}
@@ -32,7 +43,6 @@ const Hero = () => {
           />
         </Link>
       </div>
-
     </div>
   );
 };
