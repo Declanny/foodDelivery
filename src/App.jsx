@@ -4,10 +4,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Home from './components/home/Home';
-import Login from './components/login/Login';
-import SignUp from './components/signUp/SignUp';
+
 import Menu from './components/menu/Menu';
 import Chefs from './components/chefs/Chefs';
+//Auth Import
+import Login from './components/auth/login/Login';
+import SignUp from './components/auth/signUp/SignUp';
 
 
 function App() {

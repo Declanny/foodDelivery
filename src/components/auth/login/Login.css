@@ -1,0 +1,121 @@
+/* src/components/auth/login/Login.css */
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    background-color: white;
+    padding: 0 5%; /* Horizontal padding */
+    color: #333;
+  }
+  
+  /* Login image container with animated lines */
+  .login-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Positioning for underlines */
+  }
+  
+  .login-image img {
+    width: 100%;
+    max-width: 79%; /* Maximum width */
+    height: -40px auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  /* Animated underlines with cascading effect */
+  .login-image::before,
+  .login-image::after,
+  .login-image .bottom-third-underline,
+  .login-image .top-first-underline,
+  .login-image .top-second-underline,
+  .login-image .top-third-underline {
+    content: "";
+    position: absolute;
+    height: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: colorFlow 6s infinite;
+  }
+  
+  .login-image::before {
+    width: 80%;
+    bottom: -16px;
+    animation-delay: 0s;
+  }
+  
+  .login-image::after {
+    width: 60%;
+    bottom: -24px;
+    animation-delay: 1s;
+  }
+  
+  .login-image .bottom-third-underline {
+    width: 40%;
+    bottom: -32px;
+    animation-delay: 2s;
+  }
+  
+  .login-image .top-first-underline {
+    width: 80%;
+    top: -16px;
+    animation-delay: 3s;
+  }
+  
+  .login-image .top-second-underline {
+    width: 60%;
+    top: -24px;
+    animation-delay: 4s;
+  }
+  
+  .login-image .top-third-underline {
+    width: 40%;
+    top: -32px;
+    animation-delay: 5s;
+  }
+  
+  .login-form {
+    flex: 1;
+    max-width: 400px;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  
+  .login-form h2 {
+    margin-bottom: 1rem;
+    color: #2a6e5a;
+    font-size: 24px;
+  }
+  
+  .input-line {
+    width: 100%;
+    padding: 10px 0;
+    margin: 20px 0;
+    font-size: 16px;
+    color: #333;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #2a6e5a; /* Green line */
+    outline: none;
+  }
+  
+  .input-line::placeholder {
+    color: #2a6e5a; /* Green placeholder text */
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .login-image {
+      display: none;
+    }
+  
+    .login-form {
+      max-width: 90%;
+    }
+  }
+  

@@ -1,0 +1,231 @@
+/* src/components/auth/signup/SignUp.css */
+
+.signup-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+  background-color: white;
+  padding: 0 5%; /* Horizontal padding */
+  color: #333;
+}
+
+/* Signup image container with animated lines */
+.signup-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Positioning for underlines */
+}
+
+.signup-image img {
+  width: 100%;
+  max-width: 79%; /* Maximum width */
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Animated underlines with cascading effect */
+.signup-image::before,
+.signup-image::after,
+.signup-image .bottom-third-underline,
+.signup-image .top-first-underline,
+.signup-image .top-second-underline,
+.signup-image .top-third-underline {
+  content: "";
+  position: absolute;
+  height: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: colorFlow 6s infinite;
+}
+
+.signup-image::before {
+  width: 80%;
+  bottom: -16px;
+  animation-delay: 0s;
+}
+
+.signup-image::after {
+  width: 60%;
+  bottom: -24px;
+  animation-delay: 1s;
+}
+
+.signup-image .bottom-third-underline {
+  width: 40%;
+  bottom: -32px;
+  animation-delay: 2s;
+}
+
+.signup-image .top-first-underline {
+  width: 80%;
+  top: -16px;
+  animation-delay: 3s;
+}
+
+.signup-image .top-second-underline {
+  width: 60%;
+  top: -24px;
+  animation-delay: 4s;
+}
+
+.signup-image .top-third-underline {
+  width: 40%;
+  top: -32px;
+  animation-delay: 5s;
+}
+
+.signup-form {
+  flex: 1;
+  max-width: 400px;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.signup-form h2 {
+  margin-bottom: 1rem;
+  color: #2a6e5a;
+  font-size: 24px;
+}
+
+.input-line {
+  width: 100%;
+  padding: 10px 0;
+  margin: 20px 0;
+  font-size: 16px;
+  color: #333;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #2a6e5a; /* Green line */
+  outline: none;
+}
+
+.input-line::placeholder {
+  color: #2a6e5a; /* Green placeholder text */
+}
+
+/* Button styles */
+button[type="submit"], .google-signup {
+  margin-top: 12px;
+  padding: 12px;
+  background-color: #4285F4; /* Default button color */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.google-signup {
+  background-color: #DB4437; /* Google button color */
+}
+
+.signup-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.signup-buttons button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.signup-customer {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+.signup-rider {
+  background-color: #FF9800;
+  color: #fff;
+}
+
+/* Rider information section */
+.rider-info {
+  display: none; /* Initially hidden */
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.signup-rider:focus ~ .rider-info,
+.signup-rider:active ~ .rider-info {
+  display: flex;
+}
+
+.rider-info input {
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+} 
+.password-requirements {
+  margin-top: 10px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #e0e0e0; /* Background for progress bar */
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.progress {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.requirements {
+  margin-top: 5px;
+  font-size: 12px;
+}
+.password-input {
+  position: relative;
+}
+
+.password-input input {
+  width: calc(100% - 30px); /* Account for the icon on the right */
+  padding-right: 30px; /* Optional: Add padding to the right to avoid overlap with the icon */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px; /* Position on the right */
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px; /* Adjust size if needed */
+}
+
+/* Additional styles for better appearance */
+input::placeholder {
+  color: #aaa; /* Change placeholder color if needed */
+  transition: left 0.2s ease-in-out; /* Smooth transition for placeholder */
+}
+
+/* Optional: Style adjustments for focus */
+input:focus {
+  outline: none; /* Remove outline */
+  border: 2px solid #007BFF; /* Example border color on focus */
+}
+
+
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .signup-image {
+    display: none;
+  }
+
+  .signup-form {
+    max-width: 90%;
+  }
+}
