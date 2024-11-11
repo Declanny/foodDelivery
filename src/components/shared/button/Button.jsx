@@ -1,19 +1,18 @@
-// src/components/shared/button/Button.js
 import PropTypes from "prop-types";
 import './Button.css';
 
-const Button = ({ width, height, color, text, children, onClick }) => (
+const Button = ({ width, height, color, text, icon, onClick }) => (
   <button
     className="custom-button"
     style={{
       width: width || 'auto',
       height: height || 'auto',
-      backgroundColor: color || '#2a6e5a', // Default color for this project
+      backgroundColor: color || '#2a6e5a',
     }}
     onClick={onClick}
   >
-    {children}
     {text}
+    {icon && <span className="button-icon">{icon}</span>}
   </button>
 );
 
@@ -22,7 +21,7 @@ Button.propTypes = {
   height: PropTypes.string,
   color: PropTypes.string,
   text: PropTypes.string,
-  children: PropTypes.node,
+  icon: PropTypes.node,
   onClick: PropTypes.func,
 };
 

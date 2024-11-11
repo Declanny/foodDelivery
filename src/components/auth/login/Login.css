@@ -107,6 +107,11 @@
   .input-line::placeholder {
     color: #2a6e5a; /* Green placeholder text */
   }
+
+  .login-button {
+    margin-bottom: 20px; /* Adjust as needed */
+  }
+  
   
   /* Media query for smaller screens */
   @media (max-width: 768px) {

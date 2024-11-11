@@ -1,20 +1,18 @@
-/* src/components/shared/button/Button.css */
 .custom-button {
-    border: none;
-    padding: 10px 20px;
-    color: #f7faf8;
-    font-weight: bold;
-    border-radius: 24px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px; /* Space for icons */
-    transition: background-color 0.3s, transform 0.2s;
-  }
-  
-  .custom-button:hover {
-    background-color: #244f45; /* Slightly darker green */
-    transform: scale(1.05);
-  }
-  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Space between text and icon */
+  padding: 12px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button-icon {
+  display: inline-flex;
+  margin-left: 8px;
+  width: 20px;
+  height: 20px;
+}
