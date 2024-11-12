@@ -4,7 +4,7 @@ import './Home.css';
 import { Link } from 'react-router-dom';
 import MenuLink from '../menu/linkTomenuOnHome/menuLink';
 import ChefLink from '../chefs/chefLink/ChefLink';
-import RestaurantCard from '../shared/restaurant/RestaurantCard';
+import RestaurantPage from '../restaurantPage/RestaurantPage';
 
 const Home = () => {
   const handleAddToCart = () => {
@@ -29,12 +29,8 @@ const Home = () => {
         <Link to="/chefs" className="view-more">View More Chefs</Link>
       </div>
       <div className='restaurant-section'>
-      <RestaurantCard
-        image="path/to/restaurant-image.jpg"
-        logo="path/to/restaurant-logo.jpg"
-        name="Restaurant Name"
-        description="A brief description of the restaurant, highlighting its cuisine and specialties."
-      />
+     <h2>Featured Restaurants</h2>
+     <RestaurantPage />
       </div>
     </div>
   );

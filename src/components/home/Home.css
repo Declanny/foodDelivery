@@ -1,93 +1,78 @@
 /* src/components/home/Home.css */
 
-.hot-features {
-    max-width: 100%; /* Set a max width for larger screens */
-    margin: 0 auto; /* Center the section */
-    padding: 20px; /* Add some padding */
-  }
-  
-  .hot-features h2 {
-    text-align: left; /* Align header to the left */
-    margin-bottom: 20px; /* Space below the header */
-  }
-  
-  .food-cards {
-    display: grid; /* Use grid for layout */
-    grid-template-columns: repeat(5, 1fr); /* Five cards per row */
-    gap: 16px; /* Space between cards */
-  }
-  
-  .food-card-container {
-    overflow: hidden; /* Prevent overflow during animation */
-  }
-  
-  .view-more {
-    display: inline-block; /* Make it an inline-block element */
-    margin-top: 20px; /* Space above the link */
-    text-decoration: underline; /* Underline the text */
-    color: rgba(184, 142, 47, 1); /* Your specified color */
-  }
-  
-  /* Mobile Styles */
-  @media (max-width: 768px) {
-    .hot-features {
-        margin-top: -170px;
-    }
-    .food-cards {
-      display: flex; /* Use flex for mobile */
-      overflow-x: auto; /* Enable horizontal scrolling */
-      scroll-snap-type: x mandatory; /* Add snap effect */
-    }
-  
-    .food-card-container {
-      flex: 0 0 auto; /* Prevent flex items from shrinking */
-      scroll-snap-align: start; /* Snap to the start of each item */
-      transition: transform 0.3s ease; /* Smooth slide transition */
-    }
-  
-    .food-card-container:hover {
-      transform: scale(1.05); /* Slight scale on hover for effect */
-    }
-  
-    /* You can add specific animations here for left/right sliding */
-  }
-  
-  /* src/components/home/Home.css */
-
-.chef-features {
-  margin-top: 20px;
+/* General page styling */
+.home {
   padding: 20px;
 }
 
-.chef-features h2 {
+/* Hot Features Section */
+.hot-features, .chef-features, .restaurant-section {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Add margin-top to create space between Hero and Hot Features */
+.hot-features {
+  margin-top: 40px; /* Adjust the value to your desired spacing */
+}
+
+.hot-features h2, .chef-features h2, .restaurant-section h2 {
   text-align: left;
   margin-bottom: 20px;
 }
 
+/* Food Cards in Hot Features */
+.food-cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.food-card-container, .chef-card-container, .restaurant-card-container {
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.food-card-container:hover, .chef-card-container:hover, .restaurant-card-container:hover {
+  transform: scale(1.05); /* Scale effect on hover */
+}
+
+.view-more {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: underline;
+  color: rgba(184, 142, 47, 1);
+}
+
+/* Featured Chefs Section */
 .chef-cards {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 16px;
 }
 
-.chef-card-container {
-  overflow: hidden;
+/* Featured Restaurants Section */
+.restaurant-section {
+  margin-top: 20px;
 }
 
+/* Mobile Styles */
 @media (max-width: 768px) {
-  .chef-cards {
+  /* Mobile adjustments for Hot Features */
+  .food-cards, .chef-cards {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
   }
 
-  .chef-card-container {
+  .food-card-container, .chef-card-container {
     flex: 0 0 auto;
     scroll-snap-align: start;
-    transition: transform 0.3s ease;
   }
 
-  .chef-card-container:hover {
-    transform: scale(1.05);
+  /* Mobile adjustments for restaurant section */
+  .restaurant-section h2 {
+    margin-top: 30px;
   }
 }

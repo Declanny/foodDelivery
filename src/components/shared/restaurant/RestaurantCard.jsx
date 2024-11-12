@@ -1,12 +1,13 @@
-import PropTypes from "prop-types"
-
+import PropTypes from "prop-types";
 import './RestaurantCard.css';
 
-const RestaurantCard = ({ image, logo, name, description }) => {
+const RestaurantCard = ({ image, logo, name, description, link }) => {
   return (
     <div className="restaurant-card">
-      {/* Restaurant image */}
-      <img src={image} alt={`${name} cover`} className="restaurant-image" />
+      {/* Restaurant image with link */}
+      <a href={link} target="_blank" rel="noopener noreferrer">
+        <img src={image} alt={`${name} cover`} className="restaurant-image" />
+      </a>
 
       {/* Restaurant details */}
       <div className="restaurant-details">
@@ -24,10 +25,11 @@ const RestaurantCard = ({ image, logo, name, description }) => {
 };
 
 RestaurantCard.propTypes = {
-  description: PropTypes.any,
-  image: PropTypes.any,
-  logo: PropTypes.any,
-  name: PropTypes.any
-}
+  image: PropTypes.string.isRequired,
+  logo: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+};
 
 export default RestaurantCard;
