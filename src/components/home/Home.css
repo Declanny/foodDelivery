@@ -51,11 +51,46 @@
   grid-template-columns: repeat(5, 1fr);
   gap: 16px;
 }
+/* src/components/home/Home.css */
 
-/* Featured Restaurants Section */
+/* Restaurant Section Styling */
 .restaurant-section {
-  margin-top: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
 }
+
+.restaurant-section h2 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+/* Grid Layout for Restaurant Cards */
+.restaurant-scroll-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 5 cards in a row */
+  gap: 16px;
+  padding: 20px 0;
+}
+
+/* Make sure restaurant cards have consistent width */
+.restaurant-card {
+  width: 100%;
+  max-width: 300px; /* Adjust based on desired card size */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+/* Card Hover Effect */
+.restaurant-card:hover {
+  transform: scale(1.02);
+}
+
+
+
 
 /* Mobile Styles */
 @media (max-width: 768px) {
@@ -74,5 +109,8 @@
   /* Mobile adjustments for restaurant section */
   .restaurant-section h2 {
     margin-top: 30px;
+  }
+  .restaurant-scroll-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards in a row for mobile */
   }
 }
